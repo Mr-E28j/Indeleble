@@ -241,8 +241,10 @@
     display: none;
   }
 
-.footer {
-    text-align: center;
-    margin-top: 1rem;
-  }
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 2px solid #444; /* Límite sutil arriba */
+}
   
