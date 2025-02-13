@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indeleble - Codificador de texto invisible</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Encabezado con título, descripción y botón de modo oscuro/claro -->
+  <header class="header">
+    <div class="header-text">
+      <h1>Indeleble</h1>
+      <p>Codificador de texto invisible</p>
+    </div>
+    <button id="toggle-dark-mode" aria-label="Activar modo oscuro"></button>
+  </header>
+
+  <!-- Contenedor principal: sección de codificación/decodificación e información -->
+  <main class="container">
+    <!-- Sección de codificación/decodificación -->
+    <section class="encoder-decoder">
+      <!-- Tabs para elegir la acción -->
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="encode" role="tab" aria-selected="true">
+          Codificar
+        </button>
+        <button class="tab" data-tab="decode" role="tab" aria-selected="false">
+          Decodificar
+        </button>
+      </div>
+
+      <!-- Contenido de la pestaña Codificar -->
+      <div class="tab-content" id="encode" role="tabpanel">
+        <div class="textarea-container">
+          <textarea id="inputText" placeholder="Ingrese el texto a codificar..." aria-label="Texto a codificar"></textarea>
+          <button id="clearInput" aria-label="Limpiar entrada">
+            🗑️
+          </button>
+        </div>
+        <button id="encodeButton">Codificar Texto</button>
+      </div>
+
+      <!-- Contenido de la pestaña Decodificar -->
+      <div class="tab-content hidden" id="decode" role="tabpanel">
+        <div class="textarea-container">
+          <textarea id="inputTextDecode" placeholder="Pegue el texto a decodificar..." aria-label="Texto a decodificar"></textarea>
+          <button id="clearInputDecode" aria-label="Limpiar entrada">
+            🗑️
+          </button>
+        </div>
+        <button id="decodeButton">Decodificar Texto</button>
+      </div>
+
+      <!-- Área para mostrar alertas (ej. campos vacíos o errores) -->
+      <div id="alert" class="alert hidden" role="alert"></div>
+
+      <!-- Área de salida con botón para copiar el resultado -->
+      <div class="output-container hidden" id="outputContainer">
+        <textarea id="outputText" readonly aria-label="Resultado"></textarea>
+        <button id="copyButton" aria-label="Copiar al portapapeles">
+          📋
+        </button>
+      </div>
+    </section>
+
+    <!-- Sección de información adicional -->
+    <aside class="info-cards">
+      <article class="info-card">
+        <h2>¿Qué es Indeleble?</h2>
+        <p>
+          Una herramienta que convierte texto normal en caracteres Unicode invisibles. El texto codificado es imperceptible pero mantiene toda la información original.
+        </p>
+      </article>
+      <article class="info-card">
+        <h2>¿Cómo funciona?</h2>
+        <p>
+          Utiliza caracteres Unicode de ancho cero para codificar cada letra en su representación binaria. El texto resultante es invisible pero puede ser decodificado de vuelta a su forma original.
+        </p>
+      </article>
+      <article class="info-card" style=" padding-left: 35px; ">
+        <h2>Usos comunes</h2>
+        <ul>
+          <li>Marcas de agua digitales</li>
+          <li>Mensajes ocultos</li>
+          <li>Metadatos invisibles</li>
+          <li>Firmas digitales</li>
+        </ul>
+      </article>
+    </aside>
+  </main>
+
+  <!-- Notificación flotante -->
+  <div id="notification" class="notification hidden" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
